@@ -11,6 +11,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { RecipeEditComponent } from './recipes/recipe-detail/recipe-edit/recipe-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,10 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
+    ShoppingEditComponent,
+    RecipeEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [RecipeService],
   bootstrap: [AppComponent],
 })
