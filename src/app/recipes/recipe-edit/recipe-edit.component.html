@@ -33,9 +33,11 @@
           </div>
         </div>
       </div>
+
       <div class="row" id="recipe-ingredient">
         <div class="col-xs-12" formArrayName="ingredients">
-          <div class="row">
+          <label for="ingredients">Ingredients</label>
+          <div class="row" *ngFor="let ingredientCtrl of controls; let i = index" [formGroupName]="i">
             <div class="col-xs-8">
               <input type="text" class="form-control" formControlName="name">
             </div>
@@ -46,13 +48,12 @@
               <button type="button" class="btn btn-danger">X</button>
             </div>
           </div>
-          <hr>
           <div class="row">
             <div class="col-xs-12">
               <button type="button" class="btn btn-success">Add Ingredient</button>
             </div>
           </div>
-          <br>
+          <hr>
           <div class="row" id="form-buttons">
             <div class="col-xs-12">
               <button type="submit" class="btn btn-success">Save</button>
