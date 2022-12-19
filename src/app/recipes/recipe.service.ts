@@ -2,6 +2,7 @@ import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class RecipeService {
@@ -12,7 +13,19 @@ export class RecipeService {
       'https://www.kawalingpinoy.com/wp-content/uploads/2013/01/sinigang-baboy-7-768x1024.jpg',
       [new Ingredient('Pork belly cubes', 1), new Ingredient('Veggies', 3)]
     ),
+    new Recipe(
+      'Beef Caldereta',
+      'Beef shoulder stew.',
+      'https://www.kawalingpinoy.com/wp-content/uploads/2019/04/spicy-beef-caldereta-2.jpg',
+      [
+        new Ingredient('Beef shoulder cubes', 1),
+        new Ingredient('Tomato paste', 1),
+        new Ingredient('Carrots', 1),
+      ]
+    ),
   ];
+
+  recipesChanged = new Subject<Recipe[]>();
 
   constructor(private shoppinglistService: ShoppingListService) {}
 
@@ -30,5 +43,10 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppinglistService.addIngredients(ingredients);
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
   }
 }

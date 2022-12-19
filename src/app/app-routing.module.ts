@@ -12,10 +12,11 @@ const appRoutes: Routes = [
     path: 'recipes',
     component: RecipesComponent,
     children: [
+      // path objects need to be in the right order so that 'new' path component doesn't take properties from components from the ':id' path
       { path: '', component: RecipesStartComponent },
+      { path: 'new', component: RecipeEditComponent },
       { path: ':id', component: RecipeDetailComponent },
       { path: ':id/edit', component: RecipeEditComponent },
-      { path: 'new', component: RecipeEditComponent },
     ],
   },
   { path: 'shopping-list', component: ShoppingListComponent },

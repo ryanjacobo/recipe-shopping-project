@@ -19,6 +19,7 @@ export class RecipeEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // listens to the URL changes
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
@@ -51,6 +52,7 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
+    // else new recipe
     this.recipeForm = new FormGroup({
       name: new FormControl(recipeName),
       imagePath: new FormControl(recipeImagePath),
@@ -62,5 +64,8 @@ export class RecipeEditComponent implements OnInit {
   get controls() {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
-  onSubmit() {}
+
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
 }
