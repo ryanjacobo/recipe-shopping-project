@@ -4,6 +4,7 @@ import { Recipe } from './recipe.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+// @Injectable is a metadata that allows a service (ShoppingListService) to be injected to the current service.
 @Injectable()
 export class RecipeService {
   private recipes: Recipe[] = [
@@ -52,6 +53,11 @@ export class RecipeService {
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  addRecipe(newRecipe: Recipe) {
+    this.recipes.push(newRecipe);
     this.recipesChanged.next(this.recipes.slice());
   }
 }
