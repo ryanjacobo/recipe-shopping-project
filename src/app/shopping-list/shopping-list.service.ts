@@ -1,5 +1,5 @@
 import { Ingredient } from './../shared/ingredient.model';
-// import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 // Not needed if ShoppingListService is indicated in the app.module.ts > providers:[]. Although, specifying the providedIn on the @Injectable, is more efficient for Angular.
