@@ -8,19 +8,29 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
   private recipes: Recipe[] = [
+    // new Recipe(
+    //   'Sinigang',
+    //   'Pork belly with tamarind soup.',
+    //   'https://www.kawalingpinoy.com/wp-content/uploads/2013/01/sinigang-baboy-7-768x1024.jpg',
+    //   [new Ingredient('Pork belly cubes', 1), new Ingredient('Veggies', 3)]
+    // ),
+    // new Recipe(
+    //   'Beef Caldereta',
+    //   'Beef shoulder stew.',
+    //   'https://www.kawalingpinoy.com/wp-content/uploads/2019/04/spicy-beef-caldereta-2.jpg',
+    //   [
+    //     new Ingredient('Beef shoulder cubes', 1),
+    //     new Ingredient('Tomato paste', 1),
+    //     new Ingredient('Carrots', 1),
+    //   ]
+    // ),
     new Recipe(
-      'Sinigang',
-      'Pork belly with tamarind soup.',
-      'https://www.kawalingpinoy.com/wp-content/uploads/2013/01/sinigang-baboy-7-768x1024.jpg',
-      [new Ingredient('Pork belly cubes', 1), new Ingredient('Veggies', 3)]
-    ),
-    new Recipe(
-      'Beef Caldereta',
-      'Beef shoulder stew.',
-      'https://www.kawalingpinoy.com/wp-content/uploads/2019/04/spicy-beef-caldereta-2.jpg',
+      'Pansit',
+      'Stir fried noodles with meat and veggies',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRiZ9Eq-tCOMNNqeapYfPWjq7jvNxc6gkSA&usqp=CAU',
       [
-        new Ingredient('Beef shoulder cubes', 1),
-        new Ingredient('Tomato paste', 1),
+        new Ingredient('Noodles', 1),
+        new Ingredient('shredded chicken', 1),
         new Ingredient('Carrots', 1),
       ]
     ),
@@ -32,6 +42,7 @@ export class RecipeService {
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   getRecipes() {
