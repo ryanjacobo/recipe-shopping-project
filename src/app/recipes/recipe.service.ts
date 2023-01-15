@@ -24,16 +24,16 @@ export class RecipeService {
     //     new Ingredient('Carrots', 1),
     //   ]
     // ),
-    new Recipe(
-      'Pansit',
-      'Stir fried noodles with meat and veggies',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRiZ9Eq-tCOMNNqeapYfPWjq7jvNxc6gkSA&usqp=CAU',
-      [
-        new Ingredient('Noodles', 1),
-        new Ingredient('shredded chicken', 1),
-        new Ingredient('Carrots', 1),
-      ]
-    ),
+    // new Recipe(
+    //   'Pansit',
+    //   'Stir fried noodles with meat and veggies',
+    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRiZ9Eq-tCOMNNqeapYfPWjq7jvNxc6gkSA&usqp=CAU',
+    //   [
+    //     new Ingredient('Noodles', 1),
+    //     new Ingredient('shredded chicken', 1),
+    //     new Ingredient('Carrots', 1),
+    //   ]
+    // ),
   ];
 
   recipesChanged = new Subject<Recipe[]>();

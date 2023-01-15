@@ -1,3 +1,6 @@
+import { AuthGuard } from './auth/auth.guard';
+import { AuthComponent } from './auth/auth/auth.component';
+import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { RecipesStartComponent } from './recipes-start/recipes-start.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -11,15 +14,26 @@ const appRoutes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
+    canActivate: [AuthGuard], // AuthGuard prevents user from navigating to the path if it's not logged in
     children: [
       // path objects need to be in the right order so that 'new' path component doesn't take properties from components from the ':id' path
       { path: '', component: RecipesStartComponent },
       { path: 'new', component: RecipeEditComponent },
-      { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: RecipeEditComponent },
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+        resolve: [RecipesResolverService],
+        // RecipesResolverService fixes the error that occurs when URL is at /:id and the page is reloaded. The data gets fetched when URL is at /:id and page is reloaded.
+      },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent,
+        resolve: [RecipesResolverService],
+      },
     ],
   },
   { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'login', component: AuthComponent },
 ];
 
 @NgModule({
