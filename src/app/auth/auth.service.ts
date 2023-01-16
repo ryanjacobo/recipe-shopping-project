@@ -52,7 +52,7 @@ export class AuthService {
 
       case 'EMAIL_NOT_FOUND':
       case 'INVALID_PASSWORD':
-        errorMessage = 'Invalid email or password';
+        errorMessage = 'Invalid email or password.';
         break;
     }
     return throwError(errorMessage);
