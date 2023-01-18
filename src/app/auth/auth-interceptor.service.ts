@@ -1,6 +1,7 @@
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import {
+  HTTP_INTERCEPTORS,
   HttpHandler,
   HttpInterceptor,
   HttpParams,
@@ -10,7 +11,7 @@ import { exhaustMap, take } from 'rxjs/operators';
 
 // AuthInterceptorService serves as a token handler which allows fetching and storing recipes
 // @Injectable({
-//   providedIn: 'root'
+//   providedIn: 'root',
 // })
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
