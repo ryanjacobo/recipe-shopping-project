@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -7,7 +6,6 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
   providers: [
     RecipeService,
     ShoppingListService,
