@@ -10,7 +10,7 @@ import { RecipesResolverService } from './recipes-resolver.service';
 
 const routes: Routes = [
   {
-    path: 'recipes',
+    path: '', // lazy loading
     component: RecipesComponent,
     canActivate: [AuthGuard], // AuthGuard prevents user from navigating to the path if it's not logged in
     children: [

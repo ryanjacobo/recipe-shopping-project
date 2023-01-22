@@ -20,10 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     // ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RecipesModule,
+    // RecipesModule,
     SharedModule,
-    ShoppingListModule,
-    AuthModule,
+    // ShoppingListModule,
+    // AuthModule,
     CoreModule,
   ],
 
